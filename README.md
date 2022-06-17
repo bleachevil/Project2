@@ -29,6 +29,36 @@ For the sentiment portion of our project, we analyzed tweets from 2013 to 2021 a
 
 The Kaggle data came with its own sentiment scores and keyword column making it a lot easier to clean the data. First, we filtered for keyword `Ethereum` only kept the necessary columns, for example ` tweet`, `date`, `like count`, `retweet counts` etc. 
 
+We cleaned the tweets and removed all punctuation to prepare us to apply NLP. We then created a function to get the sentiment score, subjecivity, and polarity. 
+
+````python
+
+# Create a function to get the sentiment text
+def getSentiment(score):
+    if score < 0:
+        return 'Negative'
+    elif score == 0:
+        return 'Neutral'
+    else:
+        return 'Positive'
+        
+# Create a function to get the subjectivity
+def getSubjectivity(twt):
+    return TextBlob(twt).sentiment.subjectivity
+
+# Create a function to get the polarity
+def getPolarity(twt):
+    return TextBlob(twt).sentiment.polarity      
+````
+
+The scores were added as a column to the dataframe and ranked : Negative = 0, Neutral = 1, Positive = 2. 
+
+
+<img width="913" alt="Screen Shot 2022-06-16 at 8 06 17 PM" src="https://user-images.githubusercontent.com/99091066/174197405-45d9f3c4-af5c-4cc5-9b25-6cb2aade600d.png">
+
+
+
+
 We were hoping to analyze tweets published at certain times of the day compared to the ethereum price a few minutes after. To do this, we needed 1 minute interval data for Ethereum.
 
 Using Alpaca's API, we generated the following code
