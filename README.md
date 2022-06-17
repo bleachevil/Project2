@@ -125,8 +125,30 @@ These values were added to `eth2_df`. We then added lags, rolling mean, and expa
 
 ## DATA TESTING
 
+We set X as `Date`, `vwap_cbrt`, `Ethereum Market Cap`, `Number_of_tweet`, `trade_count`, `close_cbrt`,`lag_1`, `lag_2`,`lag_3`, `lag_4`, `lag_5`, `lag_6`, `lag_7`, `rolling_3_mean`, `rolling_4_mean`, `rolling_5_mean`, `rolling_6_mean`, `rolling_7_mean`, `expanding_2_mean`, `expanding_3_mean`, `expanding_4_mean`.
+
+We set Y as `Date` and `tomorrow_close_cbrt` and set the training & testing variables. 
+
+```python
+
+X_train = X.loc[(X.Date >= '2016-01-01') & (X.Date <= '2020-12-31')]
+X_test = X.loc[X.Date >= '2021-01-01']
+y_train = y.loc[(y.Date >= '2016-01-01') & (y.Date <= '2020-12-31')]
+y_test = y.loc[y.Date >= '2021-01-01']
+
+
+````
+
+We fit the data using Linear Regression, Random Forest, and XGBoost. For each model, we calculate the `MAPE`, `MAE`, and `RMSE`.
+
+`MAPE` - Mean absolute percentage error. It measures accuracy of a forecast model as a percentage. The higher the number, the less accurate the results are. 
+
+`MAE` - Mean absolute error. This score tells us the mean difference between the actual and predicted values. The lower the better.
+
+`RMSE` - Root mean square deviation. This is the standard deviation of the prediction errors. Lower RMSE indicates a better model.
 
 
 
+### Linear Regression 
 
 
