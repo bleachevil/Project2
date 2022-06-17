@@ -72,8 +72,8 @@ ticker = ["ETHUSD"]
 timeframe = "1Min"
 
 # Set start and end datetimes.
-start_date = pd.Timestamp("2016-01-01", tz="America/New_York").isoformat()
-end_date = pd.Timestamp("2016-12-31", tz="America/New_York").isoformat()
+start_date = pd.Timestamp("2017-01-01", tz="America/New_York").isoformat()
+end_date = pd.Timestamp("207-06-30", tz="America/New_York").isoformat()
 
 # Get 1 year's 
 df_ticker = alpaca.get_crypto_bars(
