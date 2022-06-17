@@ -53,10 +53,7 @@ def getPolarity(twt):
 
 The scores were added as a column to the dataframe and ranked : Negative = 0, Neutral = 1, Positive = 2. 
 
-
-<img width="913" alt="Screen Shot 2022-06-16 at 8 06 17 PM" src="https://user-images.githubusercontent.com/99091066/174197405-45d9f3c4-af5c-4cc5-9b25-6cb2aade600d.png">
-
-
+<img width="874" alt="Screen Shot 2022-06-16 at 8 27 00 PM" src="https://user-images.githubusercontent.com/99091066/174199099-1bcb07a0-091e-4665-8247-42c73948356d.png">
 
 
 We were hoping to analyze tweets published at certain times of the day compared to the ethereum price a few minutes after. To do this, we needed 1 minute interval data for Ethereum.
@@ -91,6 +88,8 @@ df_ticker.head(10)
 We had to adjust our date range to account for available historical data for Ethereum. Our time frame was then adjusted to 2016-2021. 
 
 Due to the volume of the data, we had to split the code into semi annual periods. Each of these were combined into one data frame `Total_Eth_Prices`, which we then used for further analysis.
+
+# RESULTS 
 
 
 
