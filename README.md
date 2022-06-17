@@ -147,8 +147,48 @@ We fit the data using Linear Regression, Random Forest, and XGBoost. For each mo
 
 `RMSE` - Root mean square deviation. This is the standard deviation of the prediction errors. Lower RMSE indicates a better model.
 
+Functions:
 
+````python 
+
+def mape(actual, pred): 
+    actual, pred = np.array(actual), np.array(pred)
+    return np.mean(np.abs((actual - pred) / actual)) * 100
+
+def mae(y_true, predictions):
+    y_true, predictions = np.array(y_true), np.array(predictions)
+    return np.mean(np.abs(y_true - predictions))
+
+def rmse(actual, pred):
+    return np.sqrt(mean_squared_error(actual, pred))
+
+````
 
 ### Linear Regression 
+
+The linear regression model scored a MAPE of 1.95, MAE of 0.213, and RMSE of 0.2609. Plotted on a chart, it is very close to the next day's price. 
+
+<img width="396" alt="Screen Shot 2022-06-16 at 9 08 48 PM" src="https://user-images.githubusercontent.com/99091066/174202405-2f8b5340-06ad-4151-aa6e-313c7743c1f7.png">
+
+<img width="428" alt="Screen Shot 2022-06-16 at 9 09 05 PM" src="https://user-images.githubusercontent.com/99091066/174202431-0924b463-bb34-402a-aaee-8fdb8191e397.png">
+
+
+### Random Forest 
+
+The random forest model scored a MAPE of 6.18 , MAE of 0.708, and RMSE of 0.928. Plotted on a chart, the predicted and actual values do not appear to be similar.
+
+
+<img width="394" alt="Screen Shot 2022-06-16 at 9 10 52 PM" src="https://user-images.githubusercontent.com/99091066/174202600-fce77500-088c-4d5e-b56f-4dd3bef8b7d6.png">
+
+<img width="429" alt="Screen Shot 2022-06-16 at 9 11 08 PM" src="https://user-images.githubusercontent.com/99091066/174202622-e920ffc2-661e-4401-a420-737f8c1dc624.png">
+
+### XGBOOST
+
+The XGBoost model scored a MAPE of 7.86, MAE of 0.89, and RMSE of 1.088. Plotted on a chart, the predicted and actual values do not appear to be similar.
+
+<img width="388" alt="Screen Shot 2022-06-16 at 9 12 18 PM" src="https://user-images.githubusercontent.com/99091066/174202719-2ee177b4-3a82-4b3f-be6e-ab7e278b1a14.png">
+
+<img width="426" alt="Screen Shot 2022-06-16 at 9 12 36 PM" src="https://user-images.githubusercontent.com/99091066/174202750-0b881a56-4e91-4952-b671-a532844fb6d3.png">
+
 
 
