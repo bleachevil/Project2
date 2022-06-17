@@ -111,15 +111,19 @@ heatmap.set_title('Correlation Heatmap', fontdict={'fontsize':12}, pad=12);
 
 We noticed many of the correlation scores on the heatmap were 1, we changed the rounding to 4 decimals in hopes it would make a difference. High, open, and low prices are all highly correlatd since Ethereum is priced 24 hours. The price at the end of the day near midnight (close) would be almost the same as the price at midnight (open). Due to the high correlation, we decided to create a dataframe only using `close`, `vwap`, `ethereum market cap`, `number of tweets` and `trade counts`. 
 
+The price trends were plotted below
 
+<img width="863" alt="Screen Shot 2022-06-16 at 8 40 02 PM" src="https://user-images.githubusercontent.com/99091066/174200090-469d0143-74ed-4c8e-806d-3d831e28cbcb.png">
 
+The distribution was also plotted. It is showing a right skew, which was adjusted for using a cube root transformation.
 
+<img width="862" alt="Screen Shot 2022-06-16 at 8 40 40 PM" src="https://user-images.githubusercontent.com/99091066/174200131-ba81546b-34e1-49db-a8a1-874404df74b1.png">
 
+<img width="892" alt="Screen Shot 2022-06-16 at 8 41 41 PM" src="https://user-images.githubusercontent.com/99091066/174200195-f7461ca4-e776-4590-9bda-b5f747f0b907.png">
 
+These values were added to `eth2_df`. We then added lags, rolling mean, and expanding means to the dataframe.
 
-
-
-
+## DATA TESTING
 
 
 
