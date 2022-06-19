@@ -21,7 +21,7 @@ Amira Ali | Jeff Zhang | Nadeem Hassan
 - Google Finance
 - Kaggle [Data set](https://www.kaggle.com/datasets/fabioturazzi/cryptocurrency-tweets-with-sentiment-analysis)
 - Jupyter Notebook
-- Streamlit 
+- Google Colab
 
 # DATA
 
@@ -54,7 +54,6 @@ def getPolarity(twt):
 The scores were added as a column to the dataframe and ranked : Negative = 0, Neutral = 1, Positive = 2. 
 
 <img width="874" alt="Screen Shot 2022-06-16 at 8 27 00 PM" src="https://user-images.githubusercontent.com/99091066/174199099-1bcb07a0-091e-4665-8247-42c73948356d.png">
-
 
 We were hoping to analyze tweets published at certain times of the day compared to the ethereum price a few minutes after. To do this, we needed 1 minute interval data for Ethereum.
 
@@ -89,7 +88,18 @@ We had to adjust our date range to account for available historical data for Eth
 
 Due to the volume of the data, we had to split the code into semi annual periods. Each of these were combined into one data frame `Total_Eth_Prices`, which we then used for further analysis.
 
-# RESULTS 
+We then plotted the sentiment scores with the Ethereum prices and analyzed the figures below. 
+
+<img width="374" alt="Screen Shot 2022-06-18 at 9 59 49 PM" src="https://user-images.githubusercontent.com/99091066/174462768-69d103ec-8269-4635-b22a-190ca317bc15.png">
+
+
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/99091066/174462714-12ed3d45-af2d-477d-9b32-d23e5280f2c2.png">
+
+
+The Y-axis shows the percentage change in ethereum price and sentiment scores of the tweets are on the X-axis. At each price percentge change, there were tweets with various sentiment scores. There is no definitive proof connecting twitter sentiments with prices minutes after. 
+
+Our initial objective was to find a relationship between tweets and price changes. Since we did not get the results we hoped for, we altered the scope of our project. We decided to determine which features do have an impact on ethereum prices, and if we were able to build a model that could effectively predict ethereum prices. 
+
 
 We calculated the correlation in terms of Ethereum closing prices, below are the results and these were also visualized on a heatmap.
 
@@ -109,17 +119,22 @@ heatmap.set_title('Correlation Heatmap', fontdict={'fontsize':12}, pad=12);
 
 <img width="851" alt="Screen Shot 2022-06-16 at 8 30 27 PM" src="https://user-images.githubusercontent.com/99091066/174199355-5e53724d-8740-4bc4-8d28-b83b2eac8d61.png">
 
-We noticed many of the correlation scores on the heatmap were 1, we changed the rounding to 4 decimals in hopes it would make a difference. High, open, and low prices are all highly correlatd since Ethereum is priced 24 hours. The price at the end of the day near midnight (close) would be almost the same as the price at midnight (open). Due to the high correlation, we decided to create a dataframe only using `close`, `vwap`, `ethereum market cap`, `number of tweets` and `trade counts`. 
+We noticed many of the correlation scores on the heatmap were 1, we changed the rounding to 4 decimals in hopes it would make a difference. High, open, and low prices are all highly correlatd since Ethereum is priced continuously. The price at the end of the day near midnight (close) would be almost the same as the price at midnight (open). Due to the high correlation, we decided to create a dataframe only using `close`, `vwap`, `ethereum market cap`, `number of tweets` and `trade counts`. 
 
 The price trends were plotted below
 
 <img width="863" alt="Screen Shot 2022-06-16 at 8 40 02 PM" src="https://user-images.githubusercontent.com/99091066/174200090-469d0143-74ed-4c8e-806d-3d831e28cbcb.png">
 
+Before feeding the data into our machine, we had to ensure our data was standardized to ensure a more accurate prediction.
 The distribution was also plotted. It is showing a right skew, which was adjusted for using a cube root transformation.
 
-<img width="862" alt="Screen Shot 2022-06-16 at 8 40 40 PM" src="https://user-images.githubusercontent.com/99091066/174200131-ba81546b-34e1-49db-a8a1-874404df74b1.png">
+<img width="852" alt="Screen Shot 2022-06-18 at 10 08 00 PM" src="https://user-images.githubusercontent.com/99091066/174462944-c1a7afba-c292-4074-a45c-838884931e1e.png">
 
-<img width="892" alt="Screen Shot 2022-06-16 at 8 41 41 PM" src="https://user-images.githubusercontent.com/99091066/174200195-f7461ca4-e776-4590-9bda-b5f747f0b907.png">
+<img width="726" alt="Screen Shot 2022-06-18 at 10 08 21 PM" src="https://user-images.githubusercontent.com/99091066/174462952-257ceacd-8d10-4eb1-943f-cfcf720493b7.png">
+
+This normalized the data
+
+<img width="853" alt="Screen Shot 2022-06-18 at 10 09 47 PM" src="https://user-images.githubusercontent.com/99091066/174462976-c92c565b-4199-4e31-95c9-a23d5afb3637.png">
 
 These values were added to `eth2_df`. We then added lags, rolling mean, and expanding means to the dataframe.
 
@@ -131,13 +146,17 @@ We set Y as `Date` and `tomorrow_close_cbrt` and set the training & testing vari
 
 ```python
 
-X_train = X.loc[(X.Date >= '2016-01-01') & (X.Date <= '2020-12-31')]
-X_test = X.loc[X.Date >= '2021-01-01']
-y_train = y.loc[(y.Date >= '2016-01-01') & (y.Date <= '2020-12-31')]
-y_test = y.loc[y.Date >= '2021-01-01']
+X_train = X.loc[(X.Date >= '2016-01-01') & (X.Date <= '2021-01-31')]
+X_test = X.loc[X.Date >= '2021-02-01']
+y_train = y.loc[(y.Date >= '2016-01-01') & (y.Date <= '2021-01-31')]
+y_test = y.loc[y.Date >= '2021-02-01']
+y_test_actual = y_test.copy()
+y_test_actual.tomorrow_close_cbrt = y_test_actual.tomorrow_close_cbrt ** 3
+y_test_actual
 
 
 ````
+    > The data that will be plotted, `y_test_actual`, is cubed to convert the values back to the price.
 
 We fit the data using Linear Regression, Random Forest, and XGBoost. For each model, we calculate the `MAPE`, `MAE`, and `RMSE`.
 
