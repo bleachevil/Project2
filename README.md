@@ -215,4 +215,31 @@ The XGBoost model scored a MAPE of 11.2045, MAE of 1.334, and RMSE of 1.3538. Pl
 
 Similar to RandomForest, they begin to move in the same direction but disperse as the model predicts further days. Overall, we were expecting this model to perform better than RandomForest, however this clearly was not the case. 
 
+Since we were expecting much more from the XGBoost model, we decided to plot the feature importance to determine which features the model considered the most impactful/important. 
+
+<img width="511" alt="Screen Shot 2022-06-18 at 10 27 03 PM" src="https://user-images.githubusercontent.com/99091066/174463299-916ec26e-7a4c-48fd-b6b2-8493ae978e5c.png">
+
+Vwap (volume weighted average price), trade coubt, expanding 2 mean, number of tweets, and Ethereum market cap seemed to all be important features in the model. In hopes to generate a better score, we re-tested the model only using these important features. 
+
+````python 
+X_train_subset = X_train.copy()
+X_train_subset = X_train_subset[['vwap_cbrt', 'trade_count_cbrt', 'expanding_2_mean', 'Number_of_tweet_cbrt', 'Ethereum Market Cap_cbrt']]
+X_test_subset = X_test.copy()
+X_test_subset = X_test_subset[['vwap_cbrt', 'trade_count_cbrt', 'expanding_2_mean', 'Number_of_tweet_cbrt', 'Ethereum Market Cap_cbrt']]
+
+````
+
+<img width="391" alt="Screen Shot 2022-06-18 at 10 31 16 PM" src="https://user-images.githubusercontent.com/99091066/174463404-7431d0ce-5aed-41d6-8e68-324aee6ab963.png">
+
+<img width="346" alt="Screen Shot 2022-06-18 at 10 32 58 PM" src="https://user-images.githubusercontent.com/99091066/174463435-001356a3-bbc6-4089-b2a5-2bba6061e5e2.png">
+
+This refined XGBoost model scored a MAPE of 8.510, MAE of 1.0142, and RMSE of 1.0598. Evidently, the scores on the refined model were significantly better than the previous model. It is also evident on the graph that the gap has narrowd and at least from 2021-02-01 to 2021-02-05, the predicted and actual price are following the same trend.
+
+
+
+
+
+
+
+
 
