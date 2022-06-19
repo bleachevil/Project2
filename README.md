@@ -168,7 +168,7 @@ y_test_actual
 
 
 ````
-    > The data that will be plotted, `y_test_actual`, is cubed to convert the values back to the price.
+The data that will be plotted, `y_test_actual`, is cubed to convert the values back to the price.
 
 We fit the data using Linear Regression, Random Forest, and XGBoost. For each model, we calculate the `MAPE`, `MAE`, and `RMSE`.
 
