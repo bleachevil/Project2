@@ -235,7 +235,13 @@ X_test_subset = X_test_subset[['vwap_cbrt', 'trade_count_cbrt', 'expanding_2_mea
 
 This refined XGBoost model scored a MAPE of 8.510, MAE of 1.0142, and RMSE of 1.0598. Evidently, the scores on the refined model were significantly better than the previous model. It is also evident on the graph that the gap has narrowd and at least from 2021-02-01 to 2021-02-05, the predicted and actual price are following the same trend.
 
+# CONCLUSION
 
+The intial goal of this project was to determine a relationship between twitter sentiments and subsequent price changes in Ethereum. Through our analysis, we quickly determined there was no clear relationship between the two. We decided to shift the scope of our project to determine which features have an impact on etherum prices, and how we can use these features & data in our machine learning models. 
+
+Through the heatmap, we were able to conclude which features we wanted to include to train our models. After testing the data and features for each of the three models, we agreed the Linar Regression model was the most accurate in predicting Ethereum prices. Despite our efforts to re train the XGBoost model, the scores were still lower than we had hoped. 
+
+For the future, we plan to feed more data into the model in hopes to increase the accuracy and predict future prices.
 
 
 
