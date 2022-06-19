@@ -203,7 +203,7 @@ The linear regression model scored a MAPE of 1.55, MAE of 0.1829, and RMSE of 0.
 
 <img width="304" alt="Screen Shot 2022-06-18 at 10 18 19 PM" src="https://user-images.githubusercontent.com/99091066/174463117-056c4d7a-336a-4762-ad52-ac6e2f2d3fa7.png">
 
-For the most part, the predicted values seem to mirror the actual prices. However, it seems the predicted prices are predicting prices a day late, which can be observed by the shift between the blue and orange line. Despite this, the model scored well on the above measures. 
+For the most part, the predicted values seem to match the actual prices. However, it seems the predicted prices are predicting prices a day late, which can be observed by the shift between the blue and orange line. Despite this, the model scored well on the above measures. 
 
 ### Random Forest 
 
