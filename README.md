@@ -25,6 +25,18 @@ Amira Ali | Jeff Zhang | Nadeem Hassan
 
 # DATA
 
+## QUESTIONS TO ANSWER 
+
+- Does twitter activity affect Ethereum prices? 
+
+- If so, how strong is the correlation?
+
+- If not, what is highly correlated with prices?
+
+- Are we able to predict future prices by applying machine learning modes?
+
+
+
 For the sentiment portion of our project, we analyzed tweets from 2013 to 2021 and compared it against historial ethereum prices for the same timeframe. We decided to use pre-existing data from Kaggle rather than using Twitter's API since there was a lot more data offered this way. 
 
 The Kaggle data came with its own sentiment scores and keyword column making it a lot easier to clean the data. First, we filtered for keyword `Ethereum` only kept the necessary columns, for example ` tweet`, `date`, `like count`, `retweet counts` etc. 
