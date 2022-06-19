@@ -1,0 +1,17 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore the checkpoint files
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+#Ignore compiled python files
+__pycache__
+
+#Ignore zip/pdf file
+*.zip
+*.pdf
+*.txt
+
+# Ignore files related to API keys
+.env
