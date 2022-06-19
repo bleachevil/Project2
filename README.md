@@ -185,29 +185,34 @@ def rmse(actual, pred):
 
 ### Linear Regression 
 
-The linear regression model scored a MAPE of 1.95, MAE of 0.213, and RMSE of 0.2609. Plotted on a chart, it is very close to the next day's price. 
+The linear regression model scored a MAPE of 1.55, MAE of 0.1829, and RMSE of 0.2107. Plotted on a chart, it is very close to the next day's price. 
 
-<img width="396" alt="Screen Shot 2022-06-16 at 9 08 48 PM" src="https://user-images.githubusercontent.com/99091066/174202405-2f8b5340-06ad-4151-aa6e-313c7743c1f7.png">
+<img width="391" alt="Screen Shot 2022-06-18 at 10 14 20 PM" src="https://user-images.githubusercontent.com/99091066/174463040-cd845ae4-9f7f-4880-93ec-08a14b73475f.png">
 
-<img width="428" alt="Screen Shot 2022-06-16 at 9 09 05 PM" src="https://user-images.githubusercontent.com/99091066/174202431-0924b463-bb34-402a-aaee-8fdb8191e397.png">
+<img width="304" alt="Screen Shot 2022-06-18 at 10 18 19 PM" src="https://user-images.githubusercontent.com/99091066/174463117-056c4d7a-336a-4762-ad52-ac6e2f2d3fa7.png">
 
+For the most part, the predicted values seem to mirror the actual prices. However, it seems the predicted prices are predicting prices a day late, which can be observed by the shift between the blue and orange line. Despite this, the model scored well on the above measures. 
 
 ### Random Forest 
 
-The random forest model scored a MAPE of 6.18 , MAE of 0.708, and RMSE of 0.928. Plotted on a chart, the predicted and actual values do not appear to be similar.
+The random forest model scored a MAPE of 8.35 , MAE of 0.9959, and RMSE of 1.0137. Plotted on a chart, the predicted and actual values have a very wide gap. 
+
+<img width="390" alt="Screen Shot 2022-06-18 at 10 18 55 PM" src="https://user-images.githubusercontent.com/99091066/174463129-3b176bcb-1ddf-46e4-8507-38f0ad163c38.png">
 
 
-<img width="394" alt="Screen Shot 2022-06-16 at 9 10 52 PM" src="https://user-images.githubusercontent.com/99091066/174202600-fce77500-088c-4d5e-b56f-4dd3bef8b7d6.png">
+<img width="328" alt="Screen Shot 2022-06-18 at 10 19 09 PM" src="https://user-images.githubusercontent.com/99091066/174463134-382ba9a7-0aba-4f89-87ad-f7daa650096d.png">
 
-<img width="429" alt="Screen Shot 2022-06-16 at 9 11 08 PM" src="https://user-images.githubusercontent.com/99091066/174202622-e920ffc2-661e-4401-a420-737f8c1dc624.png">
+
+Between 2021-02-01 to 2021-02-05, the prices seem to generally move in the same direction. However as it predicts further into the week, the prices start to mirror each other. Overall, the scores were high for this model, indicating a lower accuracy. 
 
 ### XGBOOST
 
-The XGBoost model scored a MAPE of 7.86, MAE of 0.89, and RMSE of 1.088. Plotted on a chart, the predicted and actual values do not appear to be similar.
+The XGBoost model scored a MAPE of 11.2045, MAE of 1.334, and RMSE of 1.3538. Plotted on a chart, the predicted and actual values do not appear to be similar. 
 
-<img width="388" alt="Screen Shot 2022-06-16 at 9 12 18 PM" src="https://user-images.githubusercontent.com/99091066/174202719-2ee177b4-3a82-4b3f-be6e-ab7e278b1a14.png">
+<img width="392" alt="Screen Shot 2022-06-18 at 10 22 24 PM" src="https://user-images.githubusercontent.com/99091066/174463202-681e7f65-1df8-4d66-a923-db794552cee0.png">
 
-<img width="426" alt="Screen Shot 2022-06-16 at 9 12 36 PM" src="https://user-images.githubusercontent.com/99091066/174202750-0b881a56-4e91-4952-b671-a532844fb6d3.png">
+<img width="349" alt="Screen Shot 2022-06-18 at 10 22 36 PM" src="https://user-images.githubusercontent.com/99091066/174463208-a1c32b2d-e2e2-45bf-b0a8-8a03e7e969a6.png">
 
+Similar to RandomForest, they begin to move in the same direction but disperse as the model predicts further days. Overall, we were expecting this model to perform better than RandomForest, however this clearly was not the case. 
 
 
