@@ -10,7 +10,7 @@ Amira Ali | Jeff Zhang | Nadeem Hassan
 
 # PRESENTATION
 
-
+The presentation deck can be found [here](https://github.com/bleachevil/Project2/blob/f0756aeb26d66c980d9edb8d47444e6532334213/Project%202%20.pdf)
 
 # TOOLS & RESOURCES
 
