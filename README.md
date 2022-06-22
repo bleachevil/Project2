@@ -231,7 +231,7 @@ Since we were expecting much more from the XGBoost model, we decided to plot the
 
 <img width="511" alt="Screen Shot 2022-06-18 at 10 27 03 PM" src="https://user-images.githubusercontent.com/99091066/174463299-916ec26e-7a4c-48fd-b6b2-8493ae978e5c.png">
 
-Vwap (volume weighted average price), trade coubt, expanding 2 mean, number of tweets, and Ethereum market cap seemed to all be important features in the model. In hopes to generate a better score, we re-tested the model only using these important features. 
+Vwap (volume weighted average price), trade count, expanding 2 mean, number of tweets, and Ethereum market cap seemed to all be important features in the model. In hopes to generate a better score, we re-tested the model only using these important features. 
 
 ````python 
 X_train_subset = X_train.copy()
