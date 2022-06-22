@@ -108,7 +108,7 @@ We then plotted the sentiment scores with the Ethereum prices and analyzed the f
 <img width="392" alt="image" src="https://user-images.githubusercontent.com/99091066/174462714-12ed3d45-af2d-477d-9b32-d23e5280f2c2.png">
 
 
-The Y-axis shows the percentage change in ethereum price and sentiment scores of the tweets are on the X-axis. At each price percentge change, there were tweets with various sentiment scores. There is no definitive proof connecting twitter sentiments with prices minutes after. 
+The Y-axis shows the percentage change in ethereum price and sentiment scores of the tweets are on the X-axis. At each price percentage change, there were tweets with various sentiment scores. There is no definitive proof connecting twitter sentiments with prices minutes after. 
 
 Our initial objective was to find a relationship between tweets and price changes. Since we did not get the results we hoped for, we altered the scope of our project. We decided to determine which features do have an impact on ethereum prices, and if we were able to build a model that could effectively predict ethereum prices. 
 
