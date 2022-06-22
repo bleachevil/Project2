@@ -251,7 +251,7 @@ This refined XGBoost model scored a MAPE of 8.510, MAE of 1.0142, and RMSE of 1.
 
 The intial goal of this project was to determine a relationship between twitter sentiments and subsequent price changes in Ethereum. Through our analysis, we quickly determined there was no clear relationship between the two. We decided to shift the scope of our project to determine which features have an impact on etherum prices, and how we can use these features & data in our machine learning models. 
 
-Through the heatmap, we were able to conclude which features we wanted to include to train our models. After testing the data and features for each of the three models, we agreed the Linear Regression model was the most accurate in predicting Ethereum prices. Despite our efforts to re train the XGBoost model, the scores were still lower than we had hoped. 
+Through the heatmap, we were able to conclude which features we wanted to include to train our models. After testing the data and features for each of the three models, we agreed the Linear Regression model had the most narrow gap between actual and predicted prices. Despite our efforts to re train the XGBoost model, the scores were still lower than we had hoped. 
 
 Even though the actual and predicted prices in our linear regression model was the closest, we can observe that RandomForest and XGboost did a better job at real time prediction of prices and trends. The scores for linear regression surpassed the other two, however, the results become obselete once you realize the delay in the price predictions. 
 
