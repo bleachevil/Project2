@@ -2,7 +2,7 @@
 
 The initial goal of our project was to determine if twitter sentiments had an effect on Ethereum prices. As we analyzed our data and conducted a sentiment analysis on tweets from 2013-2021, we concluded there was no correlation between these tweets and Ethereum prices. 
 
-We then set out to determine which features are corrrelated with Ethereum closing prices using various machine learning models. 
+We then set out to determine which features are corrrelated with Ethereum closing prices. We fed five years of relevant data into our machine learning models in hopes of building an accurate model that could predict ethereum prices. 
 
 # THE TEAM
 
@@ -253,7 +253,9 @@ The intial goal of this project was to determine a relationship between twitter 
 
 Through the heatmap, we were able to conclude which features we wanted to include to train our models. After testing the data and features for each of the three models, we agreed the Linear Regression model was the most accurate in predicting Ethereum prices. Despite our efforts to re train the XGBoost model, the scores were still lower than we had hoped. 
 
-For the future, we plan to feed more data into the model in hopes to increase the accuracy and predict future prices.
+Even though the actual and predicted prices in our linear regression model was the closest, we can observe that RandomForest and XGboost did a better job at real time prediction of prices and trends. The scores for linear regression surpassed the other two, however, the results become obselete once you realize the delay in the price predictions. 
+
+For the future, we plan to feed more data into the XGBoost model in hopes to increase the accuracy. We will add more features and focus more of our efforts in testing which features to add or remove that would yield the best possible results. We also plan to gather more data from 2021 and 2022 in order to possibly predict prices that have not been released.
 
 
 
